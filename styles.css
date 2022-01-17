@@ -256,7 +256,6 @@ img {
 
 .form-control input {
   position: absolute;
-  top: 25%;
   z-index: -3;
 }
 
