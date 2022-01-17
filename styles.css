@@ -260,7 +260,7 @@ img {
   text-transform: capitalize;
   letter-spacing: 1px;
   margin-right: 0.6rem;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.4rem;
   position: relative;
 }
 
@@ -275,7 +275,7 @@ img {
 .form-control label {
   background: var(--clr-primary-4);
   display: inline-block;
-  padding: 0 0.5rem;
+  padding: 0.1rem 0.5rem;
   cursor: pointer;
   border-radius: var(--radius);
 }
@@ -288,4 +288,16 @@ img {
 .form-control input:checked ~ label {
   background: var(--clr-black);
   color: var(--clr-white);
+}
+
+.category {
+  display: inline-block;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  border-bottom: 2px solid var(--clr-primary-4);
 }

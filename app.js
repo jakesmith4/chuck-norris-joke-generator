@@ -2,6 +2,8 @@
 const btn = document.querySelector('.btn');
 const content = document.querySelector('.content');
 const img = document.querySelector('img');
+const category = document.querySelector('.category');
+const formControls = [...document.querySelectorAll('.form-control')];
 
 // Radio Buttons
 const all = document.getElementById('all');
@@ -43,11 +45,22 @@ const scienceURL = 'https://api.chucknorris.io/jokes/random?category=science';
 const sportURL = 'https://api.chucknorris.io/jokes/random?category=sport';
 const travelURL = 'https://api.chucknorris.io/jokes/random?category=travel';
 
-// Event Listeners
+// Event Listener
 btn.addEventListener('click', () => {
   // getData(allURL);
   runChecked();
   content.scrollIntoView();
+});
+
+// Event Listener
+document.body.addEventListener('change', () => {
+  const rightCategory = formControls.find((item) => {
+    if (item.firstElementChild.checked === true) {
+      return item;
+    }
+  });
+  console.log(rightCategory.textContent);
+  category.textContent = rightCategory.textContent + ' Jokes';
 });
 
 // Function runChecked
