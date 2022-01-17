@@ -47,6 +47,7 @@ const travelURL = 'https://api.chucknorris.io/jokes/random?category=travel';
 btn.addEventListener('click', () => {
   // getData(allURL);
   runChecked();
+  content.scrollIntoView();
 });
 
 // Function runChecked

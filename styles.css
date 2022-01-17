@@ -53,6 +53,10 @@ Variables
   --max-width: 1170px;
   --fixed-width: 620px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 /*
 =============== 
 Global Styles
@@ -207,6 +211,12 @@ p {
   margin-top: 1rem;
   color: var(--clr-primary-4);
   font-size: 1.5rem;
+}
+
+.heading span {
+  display: block;
+  color: var(--clr-black);
+  text-shadow: 0 2px 15px var(--clr-primary-4);
 }
 
 .container {
