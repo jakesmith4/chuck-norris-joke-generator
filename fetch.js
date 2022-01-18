@@ -84,15 +84,12 @@ function runChecked() {
 }
 
 // Function ifChecked
-async function ifChecked(category, url) {
+function ifChecked(category, url) {
   if (category.checked) {
-    try {
-      const data = await fetch(url);
-      const response = await data.json();
-      displayData(response);
-    } catch (err) {
-      console.log(err);
-    }
+    fetch(url)
+      .then((data) => data.json())
+      .then((response) => displayData(response))
+      .catch((err) => console.log(err));
   }
 }
 

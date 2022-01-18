@@ -58,6 +58,7 @@ document.body.addEventListener('change', () => {
 
 // Event Listener
 btn.addEventListener('click', () => {
+  // getData(allURL);
   runChecked();
   content.scrollIntoView();
 });
@@ -84,20 +85,36 @@ function runChecked() {
 }
 
 // Function ifChecked
-async function ifChecked(category, url) {
+function ifChecked(category, url) {
   if (category.checked) {
-    try {
-      const data = await fetch(url);
-      const response = await data.json();
-      displayData(response);
-    } catch (err) {
-      console.log(err);
-    }
+    getData(url)
+      .then((response) => displayData(response))
+      .catch((err) => console.log(err));
   }
 }
 
-function displayData({ value: joke }) {
-  // const { value: joke } = data;
+// XHR Request
+const xhr = new XMLHttpRequest();
+function getData(url) {
+  return new Promise((resolve, reject) => {
+    xhr.open('GET', url);
+    xhr.send();
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState !== 4) return;
+      if (xhr.status === 200) {
+        resolve(xhr.responseText);
+      } else {
+        reject({
+          status: xhr.status,
+          text: xhr.statusText,
+        });
+      }
+    };
+  });
+}
+
+function displayData(data) {
+  const { value: joke } = JSON.parse(data);
   content.textContent = joke;
   img.classList.add('shake-img');
   const random = Math.random() * 1000;
